@@ -5,10 +5,11 @@
 import { greet, area, parityLabel, describeType } from './src/basics.js'
 import { add, applyTwice, makeMultiplier } from './src/functions.js'
 import { capitalize, reverseWords, countVowels } from './src/strings.js'
-import { classify, fizzbuzz, sumRange } from './src/logic.js'
-import { double, evens, total, firstMatch, names } from './src/arrays.js'
+import { classify, fizzbuzz, sumRange, showIf, orDefault } from './src/logic.js'
+import { double, evens, total, firstMatch, names, addItem, removeAt } from './src/arrays.js'
 import { fullName, withUpdates, sumAll, cityOf } from './src/objects.js'
 import { delay, fetchUser } from './src/async.js'
+import { Rectangle, Square, Counter } from './src/oop.js'
 
 // Example to copy: call it, log it with a label.
 console.log('- basics -')
@@ -18,6 +19,13 @@ console.log('parityLabel:', parityLabel(7))
 console.log('describeType:', describeType(42))
 
 // YOUR TURN: try the rest (functions, strings, logic, arrays, objects) here.
+
+
+// oop: make an instance with `new`, then call its methods.
+console.log('\n- oop -')
+const counter = new Counter()
+counter.increment()
+console.log('counter.count:', counter.count)
 
 
 // async: `await` a result, and catch the throw so the file doesn't crash.

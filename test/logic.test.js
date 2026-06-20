@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { classify, fizzbuzz, sumRange } from '../src/logic.js'
+import { classify, fizzbuzz, sumRange, showIf, orDefault } from '../src/logic.js'
 
 describe('4. Logic', () => {
   it('classify() branches on the sign of a number', () => {
@@ -19,5 +19,15 @@ describe('4. Logic', () => {
   it('sumRange() sums an inclusive range with a loop', () => {
     expect(sumRange(1, 5)).toBe(15)
     expect(sumRange(3, 3)).toBe(3)
+  })
+
+  it('showIf() returns the value when cond is true, false otherwise (&&)', () => {
+    expect(showIf(true, 'Saved')).toBe('Saved')
+    expect(showIf(false, 'Saved')).toBe(false)
+  })
+
+  it('orDefault() falls back to Guest for an empty value (||)', () => {
+    expect(orDefault('Ana')).toBe('Ana')
+    expect(orDefault('')).toBe('Guest')
   })
 })

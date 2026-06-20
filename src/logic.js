@@ -29,3 +29,20 @@ export function fizzbuzz(n) {
 export function sumRange(a, b) {
   // TODO
 }
+
+// Logical operators return a VALUE, not just true/false. This is how React
+// renders conditionally: {cond && <Thing/>}. Return `cond` AND-ed with `value`:
+// the value when cond is truthy, and cond itself (false) when it isn't.
+//   showIf(true, 'Saved')  ->  'Saved'
+//   showIf(false, 'Saved') ->  false
+export function showIf(cond, value) {
+  // TODO
+}
+
+// The `||` fallback: React writes {name || 'Guest'} to supply a default when a
+// value is empty. Return `name` when it's truthy, otherwise 'Guest'. Use ||.
+//   orDefault('Ana')  ->  'Ana'
+//   orDefault('')     ->  'Guest'
+export function orDefault(name) {
+  // TODO
+}

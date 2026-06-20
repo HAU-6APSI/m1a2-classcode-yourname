@@ -42,3 +42,18 @@ export function firstMatch(arr, predicate) {
 export function names(people) {
   // TODO
 }
+
+// Return a NEW array with `item` added to the end. Do NOT change the original.
+// In React you add to array state by spreading into a new array ([...arr, item]),
+// never with arr.push().
+//   addItem([1, 2], 3)  ->  [1, 2, 3]
+export function addItem(arr, item) {
+  // TODO
+}
+
+// Return a NEW array with the element at `index` removed. Original unchanged.
+// In React you remove from array state by filtering, not with splice().
+//   removeAt(['a', 'b', 'c'], 1)  ->  ['a', 'c']
+export function removeAt(arr, index) {
+  // TODO
+}

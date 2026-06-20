@@ -142,6 +142,20 @@ for (let i = 1; i <= 3; i++) result.push(i * 10)
 result   // [10, 20, 30]
 ```
 
+**Logical operators return a value, not just true/false.** `||` returns the
+first *truthy* operand (handy for fallbacks); `&&` returns the first *falsy* one,
+or the last operand when they're all truthy:
+
+```js
+name || 'Guest'      // name if it's truthy, otherwise 'Guest'
+isReady && 'Go!'     // 'Go!' only when isReady is truthy, else false
+```
+
+> **In React:** this is exactly how you render conditionally.
+> `{items.length && <List />}` shows the list only when there are items, and
+> `{name || 'Guest'}` supplies a fallback. (Mind the `&&` footgun: `0 && x` is
+> `0`, which React *will* render, so guard counts with `count > 0 && ...`.)
+
 > **In React:** you'll lean on `.map()` (section 5) more than raw loops for
 > rendering, but the logic of "decide, then build a result" is the same.
 
@@ -178,6 +192,14 @@ an accumulator (the running result) and the current item:
 
 ```js
 [10, 20, 30].find(n => n > 15)   // 20
+```
+
+**Adding and removing without mutating.** To add, spread into a new array; to
+remove, `.filter()` out what you don't want. Both leave the original untouched:
+
+```js
+const next = [...items, newItem]               // add to the end
+const fewer = items.filter((_, i) => i !== 2)  // remove index 2
 ```
 
 > **In React:** `.map()` renders lists (`items.map(i => <li>{i}</li>)`),
@@ -277,6 +299,51 @@ catch it with `try / catch`.
 
 📖 [MDN: Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) ·
 [async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+
+---
+
+## 8. OOP: classes
+
+A **class** is a blueprint for making objects that share the same shape and
+behavior. You create an instance with `new`:
+
+```js
+class Point {
+  constructor(x, y) {
+    this.x = x        // `this` is the instance being built
+    this.y = y
+  }
+  distanceFromOrigin() {
+    return Math.hypot(this.x, this.y)
+  }
+}
+const p = new Point(3, 4)
+p.distanceFromOrigin()   // 5
+```
+
+The **constructor** runs once, when you `new` the class; it sets up the
+instance's fields on `this`. **Methods** are functions on the class that every
+instance can call.
+
+**Inheritance** lets one class build on another with `extends`. The child
+constructor calls `super(...)` to run the parent's constructor first, and it
+inherits the parent's methods:
+
+```js
+class Point3D extends Point {
+  constructor(x, y, z) {
+    super(x, y)     // run Point's constructor
+    this.z = z
+  }
+}
+```
+
+> **In React:** function components have largely replaced classes, but classes
+> haven't disappeared. Older codebases use class components, and **error
+> boundaries** (components that catch render errors) can *only* be written as
+> classes. Knowing `this`, `extends`, and `super` lets you read them.
+
+📖 [MDN: Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
 ---
 

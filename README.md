@@ -45,10 +45,11 @@ React) without giving away the exercises.
 | [`src/basics.js`](src/basics.js)     | variables, types, template literals, ternary, default parameters |
 | [`src/functions.js`](src/functions.js) | arrow functions, higher-order functions, closures |
 | [`src/strings.js`](src/strings.js)   | common string methods |
-| [`src/logic.js`](src/logic.js)       | conditionals (if/else) and loops |
-| [`src/arrays.js`](src/arrays.js)     | `.map()`, `.filter()`, `.reduce()`, `.find()`, **key for React** |
+| [`src/logic.js`](src/logic.js)       | conditionals (if/else), loops, and `&&` / `\|\|` short-circuit |
+| [`src/arrays.js`](src/arrays.js)     | `.map()`, `.filter()`, `.reduce()`, `.find()`, immutable add/remove, **key for React** |
 | [`src/objects.js`](src/objects.js)   | destructuring, spread, rest, optional chaining |
 | [`src/async.js`](src/async.js)       | Promises and `async` / `await` |
+| [`src/oop.js`](src/oop.js)           | classes, methods, inheritance (`extends` / `super`) |
 
 Don't change the function names or the `export`s. The tests import them by
 name.
